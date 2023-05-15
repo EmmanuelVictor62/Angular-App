@@ -32,6 +32,18 @@ hotelCard.controller("HotelCardController", [
         return "fa-regular fa-heart";
       }
     };
+
+    $scope.searchText = "";
+
+    $scope.searchFilter = function (hotel) {
+      var searchText = $scope.searchText.toLowerCase();
+      var city = hotel.city.toLowerCase();
+      var country = hotel.country.toLowerCase();
+
+      return (
+        city.indexOf(searchText) !== -1 || country.indexOf(searchText) !== -1
+      );
+    };
   },
 ]);
 
