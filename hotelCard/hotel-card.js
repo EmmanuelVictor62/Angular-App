@@ -34,3 +34,12 @@ hotelCard.controller("HotelCardController", [
     };
   },
 ]);
+
+hotelCard.filter("capitalize", function () {
+  return function (input) {
+    if (input) {
+      return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+    }
+    return input;
+  };
+});

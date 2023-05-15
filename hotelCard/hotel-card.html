@@ -4,11 +4,7 @@
     <h1 class="header__title">CodeManuel</h1>
 
     <div class="header__input">
-      <input
-        type="text"
-        ng-model="search"
-        placeholder="Search Hotel Location"
-      />
+      <input type="text" ng-model="search" placeholder="Search Hotel" />
       <span class="header__input-icon">
         <i class="fa-solid fa-magnifying-glass"></i>
       </span>
@@ -40,7 +36,7 @@
 
         <div class="hotel-card__name-box">
           <p class="hotel-card__name-box-name">
-            {{hotel.city}}, {{hotel.country}}
+            {{hotel.city | capitalize}}, {{hotel.country | capitalize}}
           </p>
           <div class="hotel-card__name-box-stats">
             <i class="fa-solid fa-star"></i>
