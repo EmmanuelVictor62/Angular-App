@@ -1,0 +1,502 @@
+@import "../styles/styles.scss";
+
+body {
+  @include Airbnb-medium;
+  overflow-x: hidden !important;
+  padding-top: 88px;
+  padding-bottom: 40px;
+  font-family: Airbnb-medium;
+}
+
+// Styles for Header Component
+.header {
+  @include flex-align;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+  padding: 0px 250px;
+  height: 85px;
+  border-bottom: 1px solid #ebebeb;
+
+  @include respond(mobile-screen) {
+    padding: 0px;
+    padding-left: 10px;
+  }
+
+  @media (min-width: 1500px) and (max-width: 2000px) {
+    padding: 0px 200px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1500px) {
+    padding: 0px 80px;
+  }
+
+  @media (min-width: 2000px) {
+    padding: 0px 400px;
+  }
+
+  &-hotel-card {
+    @include flex-align;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background-color: white;
+    padding: 0px 50px;
+    height: 85px;
+    border-bottom: 1px solid #ebebeb;
+
+    @include respond(mobile-screen) {
+      padding: 0px;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // @include respond(desktop-screen) {
+    //   padding: 0px 200px;
+    // }
+
+    @media (min-width: 2300px) {
+      padding: 0px 220px;
+    }
+
+    @include respond(mini-laptop) {
+      padding: 0px 200px;
+    }
+  }
+
+  &__title {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #1a2b96 11%, #d22b96 84%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 1.6rem;
+    font-weight: 600 !important;
+    margin: 0;
+    font-family: Airbnb-medium;
+    @include Airbnb-medium;
+
+    @include respond(mobile-screen) {
+      display: none;
+    }
+  }
+
+  &__input {
+    position: relative;
+
+    & input {
+      @include flex-align;
+      border: 1px solid #ddd;
+      border-radius: 40px;
+      box-shadow: 0 0 1px #ddd, 0 1px 3px #ddd;
+      height: 48px;
+      transition: box-shadow 0.2s ease;
+      width: 400px;
+      padding-left: 50px;
+      font-size: 15px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-family: "Trebuchet MS", Arial, sans-serif;
+        font-size: 14px;
+        color: rgba(128, 128, 128, 0.6);
+      }
+
+      @include respond(mobile-screen) {
+        width: 280px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left: 7px;
+      bottom: 9px;
+      background-color: #ff3856;
+      padding: 10px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__user-box {
+    @include flex-align;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: space-between;
+    column-gap: 10px;
+    padding: 7px 12px 7px 15px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    color: #222;
+
+    @include respond(mobile-screen) {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: 0 0 1px #ddd, 0 3px 4px #ddd;
+    }
+
+    & i:first-child {
+      font-size: 17px;
+    }
+
+    & i {
+      font-size: 32px;
+      position: relative;
+    }
+
+    &-circle {
+      background-color: #ff385c;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      content: "";
+      height: 10px;
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      width: 10px;
+    }
+  }
+}
+
+// Styles for HotelCard Component
+.hotel-card {
+  color: #222;
+  cursor: pointer;
+  // font-size: 15px;
+  position: relative;
+  transition: opacity 0.3s ease;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 60px;
+
+    @media (min-width: 1000px) and (max-width: 1300px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 768px) and (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(mobile-screen) {
+      grid-template-columns: 1fr;
+    }
+
+    & li {
+      list-style: none;
+      justify-self: center;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+
+    & i {
+      &.fa-regular {
+        color: white;
+      }
+      &.fa-solid {
+        color: #ff385c;
+      }
+    }
+  }
+
+  &__badge {
+    background-color: #fff;
+    border-radius: 4px;
+    left: 10px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 10px;
+    @include Airbnb-light;
+  }
+
+  & a {
+    text-decoration: none;
+    color: #717171;
+  }
+
+  & p {
+    margin: 10px 0 0 0;
+  }
+  &__img {
+    & img {
+      border-radius: 14px;
+      height: 286px;
+      width: 302px;
+    }
+  }
+
+  &__name-box {
+    color: #202020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & p {
+      color: #202020;
+      font-size: 16px;
+      margin-bottom: 0;
+      margin-top: 8px;
+      overflow: clip;
+    }
+
+    &-stats {
+      display: flex;
+      align-items: center;
+      color: #202020;
+      -webkit-column-gap: 5px;
+      column-gap: 5px;
+      font-family: Airbnb-light;
+      margin-bottom: 0;
+      margin-top: 5px;
+
+      & p {
+        @include Airbnb-light;
+        font-family: Airbnb-light;
+      }
+    }
+  }
+
+  &__price {
+    margin-top: 12px !important;
+    color: #202020;
+
+    & span {
+      font-weight: normal;
+    }
+  }
+
+  &__distance {
+    @include Airbnb-light;
+    font-family: Airbnb-light;
+  }
+
+  &__title {
+    @include Airbnb-light;
+    font-family: Airbnb-light;
+  }
+}
+
+.hotel-details {
+  padding: 0px 250px 60px 250px;
+  @include Airbnb-light;
+  font-family: Airbnb-light;
+
+  @include respond(mobile-screen) {
+    padding: 0px 5px;
+  }
+
+  // @include respond(desktop-screen) {
+  //   padding: 0px 400px;
+  // }
+
+  @media (min-width: 1500px) and (max-width: 2000px) {
+    padding: 0px 200px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1500px) {
+    padding: 0px 80px;
+  }
+
+  @media (min-width: 2000px) {
+    padding: 0px 400px;
+  }
+
+  &__heading {
+    @include Airbnb-medium;
+    font-family: Airbnb-medium;
+    font-weight: 400;
+
+    &-rating {
+      @include Airbnb-medium;
+      font-family: Airbnb-medium;
+      display: inline-block;
+    }
+
+    &-location {
+      display: inline-block;
+      margin-left: 30px;
+
+      & span {
+        margin-left: 10px;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__img {
+    width: 1000px;
+    height: 450px;
+
+    @include respond(mobile-screen) {
+      width: 100%;
+      height: 250px;
+    }
+
+    @include respond(desktop-screen) {
+      width: 1300px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1700px) {
+      width: 80vw;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  &__title {
+    @include Airbnb-medium;
+    font-family: Airbnb-medium;
+    font-weight: 400;
+  }
+
+  &__description {
+    border-top: 1px solid lightgray;
+    width: 93%;
+    margin-top: 10px;
+
+    @include respond(desktop-screen) {
+      width: 90%;
+    }
+
+    & h3 {
+      font-size: 21px;
+      margin-bottom: 0px;
+    }
+
+    & p {
+      // width: 90%;
+      line-height: 30px;
+    }
+
+    & a {
+      @include Airbnb-medium;
+      font-family: Airbnb-medium;
+      color: black;
+    }
+  }
+
+  &__layout {
+    width: 93%;
+    border-top: 1px solid lightgray;
+    margin-top: 50px;
+    padding-bottom: 40px;
+
+    @include respond(mobile-screen) {
+      padding-bottom: 20px;
+    }
+
+    & h2 {
+      font-size: 21px;
+      // margin-bottom: 0px;
+    }
+
+    &-img {
+      width: 380px;
+
+      @include respond(mobile-screen) {
+        width: 80%;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    & h3 {
+      font-size: 18px;
+      margin: 10px 0 0 0;
+    }
+
+    & p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+
+  &__benefits {
+    border-top: 1px solid lightgray;
+    width: 93%;
+    padding-top: 15px;
+
+    & h3 {
+      font-size: 21px;
+    }
+
+    &-content {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+
+      & p {
+        font-size: 17px;
+        margin: 25px 0px;
+
+        @include respond(mobile-screen) {
+          margin: 20px 0px;
+        }
+      }
+
+      &-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include respond(mobile-screen) {
+          grid-template-columns: 1fr;
+        }
+
+        & li {
+          list-style: none;
+        }
+      }
+    }
+
+    &-button {
+      @include Airbnb-medium;
+      font-family: Airbnb-medium;
+      font-size: 16px;
+      padding: 13px 23px;
+      background-color: white;
+      border-radius: 6px;
+      border: 1px solid black;
+      margin-top: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(240, 240, 240);
+      }
+    }
+  }
+}

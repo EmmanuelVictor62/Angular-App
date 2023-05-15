@@ -1,0 +1,45 @@
+<div class="hotel-details">
+  <header-component></header-component>
+  <h1 class="hotel-details__heading">
+    This is the dummy data for hotel {{hotel.id}}
+  </h1>
+  <p class="hotel-details__heading-rating">
+    <i class="fa-solid fa-star"></i>
+    {{hotel.rating}}
+  </p>
+  <p class="hotel-details__heading-location">
+    Superhost. <span>{{hotel.city}},{{hotel.country}}</span>
+  </p>
+  <div class="hotel-details__img">
+    <img ng-src="{{hotel.coverImg}}" />
+  </div>
+  <h2 class="hotel-details__title">{{hotel.title}}</h2>
+  <div class="hotel-details__description">
+    <h3>About this place</h3>
+    <p>{{hotel.description}}</p>
+    <a href="">Show more ></a>
+  </div>
+
+  <div class="hotel-details__layout">
+    <h2>Where you'll sleep</h2>
+    <div class="hotel-details__layout-img">
+      <img ng-src="{{hotel.coverImg}}" alt="" />
+    </div>
+    <h3>Bedroom</h3>
+    <p>1 double bed</p>
+  </div>
+
+  <div class="hotel-details__benefits">
+    <h2>What this place offers</h2>
+    <div class="hotel-details__benefits-content-wrapper">
+      <li ng-repeat="contents in hotelBenefits">
+        <div class="hotel-details__benefits-content">
+          <i class="{{contents.iconClass}}"></i>
+          <p>{{contents.content}}</p>
+        </div>
+      </li>
+    </div>
+
+    <button class="hotel-details__benefits-button">Show all amenities</button>
+  </div>
+</div>

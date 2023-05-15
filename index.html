@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" style="overflow-x: hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Angular Hotel List</title>
+    <!-- Font Awesome Icon -->
+    <script
+      src="https://kit.fontawesome.com/f07c32b88e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./angular/lib/angularjs.min.js"></script>
+    <script src="./angular/lib/angular-route.min.js"></script>
+    <script src="./angular/lib/angular-animate.min.js"></script>
+
+    <script src="./angular/index.js"></script>
+    <script src="./hotelCard/hotel-card.js"></script>
+    <script src="./hotelDetails/hotel-details.js"></script>
+  </head>
+  <body>
+    <div ng-controller="AppController">
+      <!-- <header ng-include="'./component/header.html'"></header> -->
+      <!-- <header-component></header-component> -->
+      <main ng-view></main>
+    </div>
+  </body>
+</html>

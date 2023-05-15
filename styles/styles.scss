@@ -1,0 +1,50 @@
+@mixin Airbnb-bold {
+  @font-face {
+    font-family: "Airbnb-bold";
+    src: url("../fonts/airbnb-cereal-font/AirbnbCereal_W_Bd.otf");
+  }
+}
+
+@mixin Airbnb-light {
+  @font-face {
+    font-family: "Airbnb-light";
+    src: url("../fonts/airbnb-cereal-font/AirbnbCereal_W_Lt.otf");
+  }
+}
+
+@mixin Airbnb-medium {
+  @font-face {
+    font-family: "Airbnb-medium";
+    src: url("../fonts/airbnb-cereal-font/AirbnbCereal_W_Md.otf");
+  }
+}
+
+@mixin flex-align {
+  display: flex;
+  align-items: center;
+}
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == mobile-screen) {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tablet-screen) {
+    @media (min-width: 764px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if (breakpoint == mini-laptop) {
+    @media (min-width: 1024px) and (max-width: 1300px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == desktop-screen) {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<div class="hotel-card-container">
+  <!-- Header Component, couldn't import it cos of search functionality -->
+  <div class="header-hotel-card">
+    <h1 class="header__title">CodeManuel</h1>
+
+    <div class="header__input">
+      <input
+        type="text"
+        ng-model="search"
+        placeholder="Search Hotel Location"
+      />
+      <span class="header__input-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </span>
+    </div>
+
+    <div class="header__user-box">
+      <i class="fa-solid fa-bars"> </i>
+
+      <i class="fa-regular fa-circle-user">
+        <div class="header__user-box-circle"></div>
+      </i>
+    </div>
+  </div>
+
+  <li ng-repeat="hotel in hotels | filter: search">
+    <div class="hotel-card">
+      <div class="hotel-card__badge" ng-show="{{hotel.available}}">
+        Available
+      </div>
+
+      <div class="hotel-card__icon">
+        <i ng-class="className($index)" ng-click="toggleIconColor($index)"></i>
+      </div>
+
+      <a href="#!/hotel/{{hotel.id}} ">
+        <div class="hotel-card__img">
+          <img ng-src="{{hotel.coverImg}}" />
+        </div>
+
+        <div class="hotel-card__name-box">
+          <p class="hotel-card__name-box-name">
+            {{hotel.city}}, {{hotel.country}}
+          </p>
+          <div class="hotel-card__name-box-stats">
+            <i class="fa-solid fa-star"></i>
+            <p>{{hotel.rating}}</p>
+          </div>
+        </div>
+
+        <p class="hotel-card__title">{{hotel.title}}</p>
+
+        <p class="hotel-card__distance">{{hotel.distance}} kilometers</p>
+
+        <p class="hotel-card__price">
+          {{hotel.price | currency: "$"}} <span>night</span>
+        </p>
+      </a>
+    </div>
+  </li>
+</div>
